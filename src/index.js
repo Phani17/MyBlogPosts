@@ -5,8 +5,6 @@ import { createStore, applyMiddleware } from 'redux';
 import {Router,browserHistory} from 'react-router'
 import routes from './routes'
 import promise from 'redux-promise'
-//browserhistory is an object which tells router how to interpret chnges to url
-//i.e what part of url router shud take care of
 import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
