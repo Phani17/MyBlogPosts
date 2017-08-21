@@ -5,8 +5,6 @@ import App from './components/app'
 import PostsIndex from './components/posts_index'
 import PostsNew from './components/posts_new'
 import PostsShow from './components/posts_show'
-//IndexRoute shows when only parent url is matched and any child isnt matched
-
 
 export default (
   <Route path ="/" component={App} >
