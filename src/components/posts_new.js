@@ -2,30 +2,15 @@ import React, {Component, PropTypes} from 'react'
 import {reduxForm} from 'redux-form'
 import { createPost } from '../actions/index'
 import {Link} from 'react-router'
-//{...categories} synta in input, says, to get all
-//properties of that object and fill it in input
-// field like,, onBlur(), onChange() etc
+
 class PostsNew extends Component{
   static contextTypes ={
-    //PropTypes are used with the context system -
-    //it tells the React component to expect an object
-    // to be available over context.
     router:PropTypes.object
   }
 
-  onSubmit(props){ // here props is title,content,categories
+  onSubmit(props){
     this.props.createPost(props)
     .then(()=>{
-      //blog post has been created
-      //we navigate by calling this.context.router.push
-      //with path to navigate to
-
-      //to naivatget in app, without <Link> programticcaly,
-      //we need to have access to reactrouter-avaialble to all
-      //components in our app, via context property
-      //to get that access, we define contextTypes here
-      //which tells react , i want to access this prop from
-      //parent Component
       this.context.router.push('/')
     })
   }
@@ -67,11 +52,6 @@ class PostsNew extends Component{
   }
 }
 
-//form name need not be same as Component, only to be uniq
-//reduxForm maintains an app level state of this form, not to Componentlevel
-
-//connect -- 1st.. mapStateToProps, 2nd.. mapDispatchToProps
-//reduxForm -- 1st form config, 2nd .. mapStateToProps , 3rd.. mapDispatchToProps
 function validate(values){
   const errors={}
   if(!values.title){
