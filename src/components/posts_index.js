@@ -3,11 +3,8 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {fetchPosts} from '../actions/index'
 import {Link} from 'react-router'
-//if our class will call an action creator, make this as container
+
 class PostsIndex extends Component{
-  //react will call this auomatically whenever our
-  //Component is about to be rendered to DOM for very 1st time.
-  // not called from later time.
   componentWillMount(){
     this.props.fetchPosts()
   }
@@ -46,8 +43,4 @@ class PostsIndex extends Component{
 function mapStateToProps(state){
   return { posts: state.posts.posts}
 }
-// function mapDispatchToProps(dispatch){
-//   return bindActionCreators({fetchPosts},dispatch)
-// }
-// export default connect(null,mapDispatchToProps)(PostsIndex)
 export default connect(mapStateToProps,{ fetchPosts })(PostsIndex)
